@@ -212,20 +212,66 @@
 
   /* ========== MOBILE ========== */
   @media screen and (max-width:760px){
-    .container{padding:0 18px;}
-    .nav-inner{padding:0 12px;}
-    .cover .ttl{font-size:27px;}
-    .cover .subttl{font-size:16px;}
-    .cover{min-height:88vh;min-height:88svh;padding:56px 0 44px;}
+    body{font-size:15px;line-height:1.7;}
+    .container{padding:0 16px;}
+
+    /* 导航：一行横滚，品牌字不换行 */
+    .nav-inner{padding:0 10px;gap:2px;}
+    .nav-inner a{padding:10px 9px;font-size:12.5px;}
+    .nav-inner .nav-brand{margin-right:4px;white-space:nowrap;}
+
+    /* 封面：紧凑，不再整屏 */
+    .cover{min-height:0;padding:44px 0 36px;}
+    .cover .ttl{font-size:26px;}
+    .cover .subttl{font-size:15px;line-height:1.7;}
+    .badge-top{font-size:11px;letter-spacing:2px;margin-bottom:24px;}
+    .logo-wrap{margin-bottom:28px;}
+    .logo-wrap img{height:34px;}
+    .cover .rule{margin:20px 0;}
+    .product-tags{gap:8px;margin-top:26px;}
+    .product-tags span{font-size:12px;padding:4px 10px;}
+    .cover .meta{margin-top:32px;font-size:12.5px;line-height:1.9;}
+
+    /* 栅格全降单列 */
     .grid2,.grid3,.grid4,.kpi-row,.steps,.photo-set.cols2,.photo-set.cols3,.vs-row{grid-template-columns:1fr;}
-    .series-header{flex-direction:column;}
-    h1.sec{font-size:20px;}
-    section{padding:44px 0;}
-    .table-wrap{margin:14px -18px 22px;padding:0 18px;}
-    table{min-width:600px;}
-    .kpi .v{font-size:21px;}
-    .photo-set.g-mobile-2{grid-template-columns:1fr 1fr;}
-    .print-fab{right:14px;bottom:14px;padding:10px 16px;font-size:13px;}
+    .kpi-row{gap:10px;}
+    .kpi{display:flex;align-items:baseline;justify-content:space-between;text-align:left;padding:12px 14px;}
+    .kpi .v{font-size:19px;}
+    .kpi .l{margin-top:0;text-align:right;max-width:62%;}
+    .steps{gap:10px;}
+    .step{padding:14px;}
+    .step::before{font-size:20px;margin-bottom:4px;}
+
+    /* 标题与间距 */
+    h1.sec{font-size:19px;}
+    h2.sub{font-size:16px;margin:26px 0 12px;}
+    section{padding:40px 0;}
+    .section-desc{margin-bottom:24px;padding-bottom:14px;}
+    .series-header{flex-direction:column;gap:2px;}
+    .series-body{padding:16px;}
+    .case-body{padding:16px;}
+    .callout{padding:14px 16px;font-size:14px;}
+    .card{padding:14px 16px;}
+
+    /* 表格：卡片化（免横滑） */
+    .table-wrap{margin:14px 0 20px;overflow-x:visible;}
+    table,.table-wrap table{min-width:0;font-size:13.5px;}
+    table thead{display:none;}
+    table,table tbody,table tr,table td{display:block;width:100%;}
+    table tbody tr{border:1px solid var(--border);border-radius:6px;margin-bottom:10px;padding:6px 0;background:#fff !important;}
+    table tbody td{border-bottom:none !important;padding:6px 14px;background:transparent !important;}
+    table tbody td::before{content:attr(data-th);display:block;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:0.5px;margin-bottom:2px;}
+    table tbody td:not([data-th])::before{content:none;}
+    table td.key{white-space:normal;}
+    table td[rowspan]{border-bottom:1px dashed var(--border) !important;margin-bottom:6px;}
+
+    /* 图片：竖图限高，双图对比保持两列 */
+    .photo-item img{max-height:70vh;object-fit:cover;object-position:top;}
+    .photo-set.g-mobile-2,.vs-row.g-mobile-2{grid-template-columns:1fr 1fr !important;}
+    .vs-row.g-mobile-2 .cap,.photo-set.g-mobile-2 .cap{font-size:11px;}
+    .photo-set.cols2 .photo-item img,.vs-row .vs-cell img{max-height:56vh;}
+
+    .print-fab{right:12px;bottom:12px;padding:9px 14px;font-size:12.5px;}
   }
 </style>
 </head>
@@ -283,8 +329,8 @@
       <table>
         <thead><tr><th style="width:22%">章节</th><th style="width:14%">属性</th><th>对外使用说明</th></tr></thead>
         <tbody>
-          <tr><td class="key">01~05、07</td><td><span class="chip green">可对外</span></td><td>可直接面向经销商及终端业主展示；案例均已按匿名口径脱敏</td></tr>
-          <tr><td class="key">06 附注：华能进入模式</td><td><span class="chip org">内部详版</span></td><td>含进入路径细节与市场规模测算，仅用于对核心经销商的定向沟通；转发或印刷前请征得工业防腐事业中心同意</td></tr>
+          <tr><td class="key" data-th="章节">01~05、07</td><td data-th="属性"><span class="chip green">可对外</span></td><td data-th="对外使用说明">可直接面向经销商及终端业主展示；案例均已按匿名口径脱敏</td></tr>
+          <tr><td class="key" data-th="章节">06 附注：华能进入模式</td><td data-th="属性"><span class="chip org">内部详版</span></td><td data-th="对外使用说明">含进入路径细节与市场规模测算，仅用于对核心经销商的定向沟通；转发或印刷前请征得工业防腐事业中心同意</td></tr>
         </tbody>
       </table>
     </div>
@@ -320,14 +366,14 @@
       <table>
         <thead><tr><th style="width:13%">资产类别</th><th style="width:24%">典型场景</th><th style="width:11%">更新频率</th><th style="width:24%">决策驱动力</th><th style="width:28%">竞争态势</th></tr></thead>
         <tbody>
-          <tr><td class="key">金属屋面</td><td>彩钢瓦厂房翻新、节点密封、隔热节能</td><td>5~8年</td><td>漏水导致停产损失；关键设施愿付溢价</td><td>市场极度分散，无品牌垄断</td></tr>
-          <tr><td class="key">墙面系统</td><td>金属围护+混凝土砂浆墙面复合病害</td><td>8~12年</td><td>旧涂层兼容性决定体系化方案溢价</td><td>防水+防腐组合方案趋势上升</td></tr>
-          <tr><td class="key">工业地面</td><td>环氧/聚氨酯地坪翻新、耐化学介质升级</td><td>3~7年</td><td>不停产施工，水性低VOC快速开放使用</td><td>外资与本土品牌主导环氧，水性化是差异化路径</td></tr>
-          <tr><td class="key">彩色路面</td><td>园区道路翻新、防滑安全、功能分区</td><td>3~5年</td><td>可见性入口业务，衍生其他资产需求</td><td>EAU参编T/CECS标准，专业厂商竞争</td></tr>
-          <tr><td class="key">钢结构</td><td>厂房屋架/管廊桥架/设备支架，C2~C5-VH全等级</td><td>10~20年</td><td>锈蚀触发大修，全寿命成本偏好长周期体系</td><td>国际品牌主导高端，本土以价格竞争为主</td></tr>
-          <tr><td class="key">混凝土设施</td><td>桥梁梁柱/码头平台/建筑外墙，抗碳化/氯离子/盐冻</td><td>15~25年</td><td>结构安全驱动，预防性防护渗透率提升</td><td>市场碎片化，品牌集中度低</td></tr>
-          <tr><td class="key">容纳设施</td><td>污水池/储罐/围堰，H₂S/酸碱/有机介质</td><td>按介质定</td><td>环保合规不可失效，技术服务密集</td><td>聚脲占污水池市场较大份额；水性低VOC体系有合规优势</td></tr>
-          <tr><td class="key">运动面层</td><td>企业体育场地/室内球场/办公弹性地面</td><td>5~10年</td><td>企业ESG与员工健康福利驱动</td><td>专业体育地材厂商主导；EAU有国家级图集背书</td></tr>
+          <tr><td class="key" data-th="资产类别">金属屋面</td><td data-th="典型场景">彩钢瓦厂房翻新、节点密封、隔热节能</td><td data-th="更新频率">5~8年</td><td data-th="决策驱动力">漏水导致停产损失；关键设施愿付溢价</td><td data-th="竞争态势">市场极度分散，无品牌垄断</td></tr>
+          <tr><td class="key" data-th="资产类别">墙面系统</td><td data-th="典型场景">金属围护+混凝土砂浆墙面复合病害</td><td data-th="更新频率">8~12年</td><td data-th="决策驱动力">旧涂层兼容性决定体系化方案溢价</td><td data-th="竞争态势">防水+防腐组合方案趋势上升</td></tr>
+          <tr><td class="key" data-th="资产类别">工业地面</td><td data-th="典型场景">环氧/聚氨酯地坪翻新、耐化学介质升级</td><td data-th="更新频率">3~7年</td><td data-th="决策驱动力">不停产施工，水性低VOC快速开放使用</td><td data-th="竞争态势">外资与本土品牌主导环氧，水性化是差异化路径</td></tr>
+          <tr><td class="key" data-th="资产类别">彩色路面</td><td data-th="典型场景">园区道路翻新、防滑安全、功能分区</td><td data-th="更新频率">3~5年</td><td data-th="决策驱动力">可见性入口业务，衍生其他资产需求</td><td data-th="竞争态势">EAU参编T/CECS标准，专业厂商竞争</td></tr>
+          <tr><td class="key" data-th="资产类别">钢结构</td><td data-th="典型场景">厂房屋架/管廊桥架/设备支架，C2~C5-VH全等级</td><td data-th="更新频率">10~20年</td><td data-th="决策驱动力">锈蚀触发大修，全寿命成本偏好长周期体系</td><td data-th="竞争态势">国际品牌主导高端，本土以价格竞争为主</td></tr>
+          <tr><td class="key" data-th="资产类别">混凝土设施</td><td data-th="典型场景">桥梁梁柱/码头平台/建筑外墙，抗碳化/氯离子/盐冻</td><td data-th="更新频率">15~25年</td><td data-th="决策驱动力">结构安全驱动，预防性防护渗透率提升</td><td data-th="竞争态势">市场碎片化，品牌集中度低</td></tr>
+          <tr><td class="key" data-th="资产类别">容纳设施</td><td data-th="典型场景">污水池/储罐/围堰，H₂S/酸碱/有机介质</td><td data-th="更新频率">按介质定</td><td data-th="决策驱动力">环保合规不可失效，技术服务密集</td><td data-th="竞争态势">聚脲占污水池市场较大份额；水性低VOC体系有合规优势</td></tr>
+          <tr><td class="key" data-th="资产类别">运动面层</td><td data-th="典型场景">企业体育场地/室内球场/办公弹性地面</td><td data-th="更新频率">5~10年</td><td data-th="决策驱动力">企业ESG与员工健康福利驱动</td><td data-th="竞争态势">专业体育地材厂商主导；EAU有国家级图集背书</td></tr>
         </tbody>
       </table>
     </div>
@@ -369,10 +415,10 @@
       <table>
         <thead><tr><th style="width:18%">维度</th><th style="width:38%">材料视角（传统模式）</th><th style="width:44%">工程视角（EAU应用体系）</th></tr></thead>
         <tbody>
-          <tr><td class="key">卖什么</td><td>卖材料、卖单品，按涂层名称选型</td><td>按基材、腐蚀介质、功能需求、施工条件与行业场景做体系化选型</td></tr>
-          <tr><td class="key">决策依据</td><td>停留在单一性能指标或单次采购价格</td><td>一揽子解决材料、施工、安全、环保、停工与运维周期的综合问题</td></tr>
-          <tr><td class="key">交付物</td><td>货到现场即完成</td><td>勘验 → 配套方案 → 施工指导 → 验收 → 回访，闭环交付</td></tr>
-          <tr><td class="key">客户买到</td><td>一桶涂料</td><td>一个可验证的工程结果</td></tr>
+          <tr><td class="key" data-th="维度">卖什么</td><td data-th="材料视角（传统模式）">卖材料、卖单品，按涂层名称选型</td><td data-th="工程视角（EAU应用体系）">按基材、腐蚀介质、功能需求、施工条件与行业场景做体系化选型</td></tr>
+          <tr><td class="key" data-th="维度">决策依据</td><td data-th="材料视角（传统模式）">停留在单一性能指标或单次采购价格</td><td data-th="工程视角（EAU应用体系）">一揽子解决材料、施工、安全、环保、停工与运维周期的综合问题</td></tr>
+          <tr><td class="key" data-th="维度">交付物</td><td data-th="材料视角（传统模式）">货到现场即完成</td><td data-th="工程视角（EAU应用体系）">勘验 → 配套方案 → 施工指导 → 验收 → 回访，闭环交付</td></tr>
+          <tr><td class="key" data-th="维度">客户买到</td><td data-th="材料视角（传统模式）">一桶涂料</td><td data-th="工程视角（EAU应用体系）">一个可验证的工程结果</td></tr>
         </tbody>
       </table>
     </div>
@@ -457,10 +503,10 @@
       <table>
         <thead><tr><th style="width:16%">维度</th><th style="width:42%">技术要点</th><th style="width:42%">工程价值</th></tr></thead>
         <tbody>
-          <tr><td class="key">防腐性能</td><td>底/中/面涂复合体系，C2~C5-VH全腐蚀等级覆盖；富锌底漆阴极保护+云铁/高阻隔中涂屏蔽+改性聚氨酯面漆耐候</td><td>同等防腐等级下，以水性体系达到溶剂型体系的防护寿命</td></tr>
-          <tr><td class="key">施工突破</td><td>带锈涂装（PB-GA005 免喷砂，St2~St3 可施工）；潮湿基面可施工（污废水体系湿基面粘结≥1.0MPa）；密闭空间安全施工（水性不燃不爆）</td><td>在役设施不停产翻新；地下空间、池体、廊道等溶剂型禁区可作业</td></tr>
-          <tr><td class="key">环保合规</td><td>VOC&lt;80g/L（金属防腐配套体系综合值）；符合 GB 30981.2-2025（2026-06-01 起实施）；非危化品，普通货物运输</td><td>业主环保考核无忧；运输仓储不受危化品管理约束，渠道备货门槛低</td></tr>
-          <tr><td class="key">全寿命经济</td><td>耐久&gt;25年（C5-VH体系）；带锈涂装省去喷砂工序与粉尘治理；翻新可在原涂层上重涂</td><td>业主全寿命周期成本（LCCA）显著优化，经销商可据此进入决策层对话</td></tr>
+          <tr><td class="key" data-th="维度">防腐性能</td><td data-th="技术要点">底/中/面涂复合体系，C2~C5-VH全腐蚀等级覆盖；富锌底漆阴极保护+云铁/高阻隔中涂屏蔽+改性聚氨酯面漆耐候</td><td data-th="工程价值">同等防腐等级下，以水性体系达到溶剂型体系的防护寿命</td></tr>
+          <tr><td class="key" data-th="维度">施工突破</td><td data-th="技术要点">带锈涂装（PB-GA005 免喷砂，St2~St3 可施工）；潮湿基面可施工（污废水体系湿基面粘结≥1.0MPa）；密闭空间安全施工（水性不燃不爆）</td><td data-th="工程价值">在役设施不停产翻新；地下空间、池体、廊道等溶剂型禁区可作业</td></tr>
+          <tr><td class="key" data-th="维度">环保合规</td><td data-th="技术要点">VOC&lt;80g/L（金属防腐配套体系综合值）；符合 GB 30981.2-2025（2026-06-01 起实施）；非危化品，普通货物运输</td><td data-th="工程价值">业主环保考核无忧；运输仓储不受危化品管理约束，渠道备货门槛低</td></tr>
+          <tr><td class="key" data-th="维度">全寿命经济</td><td data-th="技术要点">耐久&gt;25年（C5-VH体系）；带锈涂装省去喷砂工序与粉尘治理；翻新可在原涂层上重涂</td><td data-th="工程价值">业主全寿命周期成本（LCCA）显著优化，经销商可据此进入决策层对话</td></tr>
         </tbody>
       </table>
     </div>
@@ -483,10 +529,10 @@
           <table>
             <thead><tr><th>代表配套</th><th>表面处理</th><th>体系构成</th><th>适用等级</th></tr></thead>
             <tbody>
-              <tr><td class="key">MS1 / MS2（带锈翻新）</td><td>St2</td><td>PB-GA005 带锈底漆 →（云铁中层）→ 面漆</td><td>C2(H)/C3(M) ~ C3(H)</td></tr>
-              <tr><td class="key">MS7 / MS8</td><td>Sa2½</td><td>防腐/富锌底漆 → 云铁中层150μm → 防腐面漆</td><td>C4(H)</td></tr>
-              <tr><td class="key">MS9a / MS9b</td><td>Sa2½</td><td>防腐/富锌底漆 → 云铁中层150μm → 改性聚氨酯面漆</td><td>C4(H) / C5(M)</td></tr>
-              <tr class="hl"><td class="key">MS10a / MS10b ★</td><td>Sa2½</td><td>防腐/富锌底漆 → 高阻隔中层150μm → 改性聚氨酯面漆</td><td class="hl">C5(H) / C5(VH)</td></tr>
+              <tr><td class="key" data-th="代表配套">MS1 / MS2（带锈翻新）</td><td data-th="表面处理">St2</td><td data-th="体系构成">PB-GA005 带锈底漆 →（云铁中层）→ 面漆</td><td data-th="适用等级">C2(H)/C3(M) ~ C3(H)</td></tr>
+              <tr><td class="key" data-th="代表配套">MS7 / MS8</td><td data-th="表面处理">Sa2½</td><td data-th="体系构成">防腐/富锌底漆 → 云铁中层150μm → 防腐面漆</td><td data-th="适用等级">C4(H)</td></tr>
+              <tr><td class="key" data-th="代表配套">MS9a / MS9b</td><td data-th="表面处理">Sa2½</td><td data-th="体系构成">防腐/富锌底漆 → 云铁中层150μm → 改性聚氨酯面漆</td><td data-th="适用等级">C4(H) / C5(M)</td></tr>
+              <tr class="hl"><td class="key" data-th="代表配套">MS10a / MS10b ★</td><td data-th="表面处理">Sa2½</td><td data-th="体系构成">防腐/富锌底漆 → 高阻隔中层150μm → 改性聚氨酯面漆</td><td class="hl" data-th="适用等级">C5(H) / C5(VH)</td></tr>
             </tbody>
           </table>
         </div>
@@ -528,9 +574,9 @@
           <table>
             <thead><tr><th>腐蚀等级</th><th>配套</th><th>体系构成</th><th>总膜厚</th></tr></thead>
             <tbody>
-              <tr><td class="key">弱腐蚀</td><td class="key">CS3</td><td>LH-F106 底涂 → FM369 耐化学面涂</td><td>≥150μm</td></tr>
-              <tr><td class="key">中腐蚀</td><td class="key">CS4</td><td>LH-F106 → FM368 高阻隔厚浆中涂1500μm → FM369</td><td>≥1650μm</td></tr>
-              <tr class="hl"><td class="key">强腐蚀</td><td class="key">CS5</td><td>LH-F106 → FM368 高阻隔厚浆中涂3000μm → FM369</td><td class="hl">≥3150μm</td></tr>
+              <tr><td class="key" data-th="腐蚀等级">弱腐蚀</td><td class="key" data-th="配套">CS3</td><td data-th="体系构成">LH-F106 底涂 → FM369 耐化学面涂</td><td data-th="总膜厚">≥150μm</td></tr>
+              <tr><td class="key" data-th="腐蚀等级">中腐蚀</td><td class="key" data-th="配套">CS4</td><td data-th="体系构成">LH-F106 → FM368 高阻隔厚浆中涂1500μm → FM369</td><td data-th="总膜厚">≥1650μm</td></tr>
+              <tr class="hl"><td class="key" data-th="腐蚀等级">强腐蚀</td><td class="key" data-th="配套">CS5</td><td data-th="体系构成">LH-F106 → FM368 高阻隔厚浆中涂3000μm → FM369</td><td class="hl" data-th="总膜厚">≥3150μm</td></tr>
             </tbody>
           </table>
         </div>
@@ -596,9 +642,9 @@
           <table>
             <thead><tr><th>型号</th><th>类型</th><th>荷载等级</th><th>典型场景</th></tr></thead>
             <tbody>
-              <tr><td class="key">LL-CT000SA/B</td><td>慢道型</td><td>上人级</td><td>人行步道、广场、景观道</td></tr>
-              <tr><td class="key">LG-CT100SA/B</td><td>通用型</td><td>上小车级</td><td>自行车道、小型机动车道</td></tr>
-              <tr><td class="key">LH-CT200HA/B</td><td>增强型</td><td>重载级</td><td>公交车道、工业厂区、钢桥面、停车场</td></tr>
+              <tr><td class="key" data-th="型号">LL-CT000SA/B</td><td data-th="类型">慢道型</td><td data-th="荷载等级">上人级</td><td data-th="典型场景">人行步道、广场、景观道</td></tr>
+              <tr><td class="key" data-th="型号">LG-CT100SA/B</td><td data-th="类型">通用型</td><td data-th="荷载等级">上小车级</td><td data-th="典型场景">自行车道、小型机动车道</td></tr>
+              <tr><td class="key" data-th="型号">LH-CT200HA/B</td><td data-th="类型">增强型</td><td data-th="荷载等级">重载级</td><td data-th="典型场景">公交车道、工业厂区、钢桥面、停车场</td></tr>
             </tbody>
           </table>
         </div>
@@ -611,12 +657,12 @@
       <table>
         <thead><tr><th style="width:12%">行业</th><th style="width:34%">典型防护对象与工况</th><th style="width:30%">推荐体系组合</th><th style="width:24%">切入卖点</th></tr></thead>
         <tbody>
-          <tr><td class="key">能源电力</td><td>输煤栈桥/脱硫烟道（C5酸性冷凝）/冷却塔/循环水池/金属屋面</td><td>01金属（MS9b/MS10）+ 03污废水（CS4/CS5）+ 05 ERC</td><td>检修窗口短→带锈快干；动火受限→水性不燃；烟道内壁已有验证</td></tr>
-          <tr><td class="key">水利</td><td>水闸/泵站/渡槽混凝土结构，潮湿-干湿交替，氯离子与碳化</td><td>02混凝土大气（CS1）+ 03污废水（CS3/CS4）</td><td>潮湿基面可施工；抗氯离子/抗碳化延长结构寿命</td></tr>
-          <tr><td class="key">水务</td><td>污水池/净水厂池体/检修井，H₂S生物腐蚀+酸碱介质，密闭空间</td><td>03污废水（CS3~CS5）+ 01金属（工艺管道/护栏）</td><td>密闭空间安全施工+耐30%强酸碱，苏州5座净化厂群体验证</td></tr>
-          <tr><td class="key">化工</td><td>装置区钢构/管廊（C4~C5工业大气）/围堰/污水处理设施/厂区道路</td><td>01金属（MS8/MS9）+ 03污废水 + 04地坪 + 06彩色路面</td><td>耐化学介质体系+VOC合规+不停产翻新</td></tr>
-          <tr><td class="key">港口</td><td>码头钢结构/转运塔/皮带机廊道（C4~C5-M海洋大气+粉尘磨损）/混凝土承台</td><td>01金属（MS9b/MS10b + PB-GA005带锈）+ 02混凝土</td><td>C5-M/VH验证+带锈涂装解决在役码头喷砂受限，翻车房5年回访数据</td></tr>
-          <tr><td class="key">码头粮储</td><td>筒仓/输送设施（粉尘+盐雾耦合）/取制样楼/堆场道路</td><td>01金属（带锈翻新）+ 05 ERC + 06彩色路面</td><td>粮食粉尘环境低VOC合规；密闭廊道不燃不爆；最小化停机</td></tr>
+          <tr><td class="key" data-th="行业">能源电力</td><td data-th="典型防护对象与工况">输煤栈桥/脱硫烟道（C5酸性冷凝）/冷却塔/循环水池/金属屋面</td><td data-th="推荐体系组合">01金属（MS9b/MS10）+ 03污废水（CS4/CS5）+ 05 ERC</td><td data-th="切入卖点">检修窗口短→带锈快干；动火受限→水性不燃；烟道内壁已有验证</td></tr>
+          <tr><td class="key" data-th="行业">水利</td><td data-th="典型防护对象与工况">水闸/泵站/渡槽混凝土结构，潮湿-干湿交替，氯离子与碳化</td><td data-th="推荐体系组合">02混凝土大气（CS1）+ 03污废水（CS3/CS4）</td><td data-th="切入卖点">潮湿基面可施工；抗氯离子/抗碳化延长结构寿命</td></tr>
+          <tr><td class="key" data-th="行业">水务</td><td data-th="典型防护对象与工况">污水池/净水厂池体/检修井，H₂S生物腐蚀+酸碱介质，密闭空间</td><td data-th="推荐体系组合">03污废水（CS3~CS5）+ 01金属（工艺管道/护栏）</td><td data-th="切入卖点">密闭空间安全施工+耐30%强酸碱，苏州5座净化厂群体验证</td></tr>
+          <tr><td class="key" data-th="行业">化工</td><td data-th="典型防护对象与工况">装置区钢构/管廊（C4~C5工业大气）/围堰/污水处理设施/厂区道路</td><td data-th="推荐体系组合">01金属（MS8/MS9）+ 03污废水 + 04地坪 + 06彩色路面</td><td data-th="切入卖点">耐化学介质体系+VOC合规+不停产翻新</td></tr>
+          <tr><td class="key" data-th="行业">港口</td><td data-th="典型防护对象与工况">码头钢结构/转运塔/皮带机廊道（C4~C5-M海洋大气+粉尘磨损）/混凝土承台</td><td data-th="推荐体系组合">01金属（MS9b/MS10b + PB-GA005带锈）+ 02混凝土</td><td data-th="切入卖点">C5-M/VH验证+带锈涂装解决在役码头喷砂受限，翻车房5年回访数据</td></tr>
+          <tr><td class="key" data-th="行业">码头粮储</td><td data-th="典型防护对象与工况">筒仓/输送设施（粉尘+盐雾耦合）/取制样楼/堆场道路</td><td data-th="推荐体系组合">01金属（带锈翻新）+ 05 ERC + 06彩色路面</td><td data-th="切入卖点">粮食粉尘环境低VOC合规；密闭廊道不燃不爆；最小化停机</td></tr>
         </tbody>
       </table>
     </div>
@@ -844,10 +890,10 @@
       <table>
         <thead><tr><th style="width:22%">文号</th><th style="width:38%">鉴定项目</th><th style="width:14%">技术水平</th><th style="width:26%">对应业务方向</th></tr></thead>
         <tbody>
-          <tr class="hl"><td class="key">苏工信鉴字〔2023〕203号</td><td>交通金属设施用重防腐耐候涂层材料（发明专利2件）</td><td class="hl">国际领先</td><td>金属结构防腐 · 工业设备</td></tr>
-          <tr><td class="key">苏工信鉴字〔2023〕200号</td><td>污水处理系统用水性高阻隔防腐材料（发明专利4件）</td><td><span class="text-success">国际先进</span></td><td>污废水环境 · 容纳设施</td></tr>
-          <tr><td class="key">苏工信鉴字〔2023〕201号</td><td>交通混凝土设施用耐腐蚀EAU防护材料（发明1件+实用新型1件）</td><td><span class="text-success">国内领先</span></td><td>混凝土防护 · 桥梁市政</td></tr>
-          <tr><td class="key">苏工信鉴字〔2021〕142号</td><td>3D增材技术个性定制高耐候EAU靓彩路面材料（专利5件）</td><td><span class="text-success">国际先进</span></td><td>彩色路面 · 园区道路</td></tr>
+          <tr class="hl"><td class="key" data-th="文号">苏工信鉴字〔2023〕203号</td><td data-th="鉴定项目">交通金属设施用重防腐耐候涂层材料（发明专利2件）</td><td class="hl" data-th="技术水平">国际领先</td><td data-th="对应业务方向">金属结构防腐 · 工业设备</td></tr>
+          <tr><td class="key" data-th="文号">苏工信鉴字〔2023〕200号</td><td data-th="鉴定项目">污水处理系统用水性高阻隔防腐材料（发明专利4件）</td><td data-th="技术水平"><span class="text-success">国际先进</span></td><td data-th="对应业务方向">污废水环境 · 容纳设施</td></tr>
+          <tr><td class="key" data-th="文号">苏工信鉴字〔2023〕201号</td><td data-th="鉴定项目">交通混凝土设施用耐腐蚀EAU防护材料（发明1件+实用新型1件）</td><td data-th="技术水平"><span class="text-success">国内领先</span></td><td data-th="对应业务方向">混凝土防护 · 桥梁市政</td></tr>
+          <tr><td class="key" data-th="文号">苏工信鉴字〔2021〕142号</td><td data-th="鉴定项目">3D增材技术个性定制高耐候EAU靓彩路面材料（专利5件）</td><td data-th="技术水平"><span class="text-success">国际先进</span></td><td data-th="对应业务方向">彩色路面 · 园区道路</td></tr>
         </tbody>
       </table>
     </div>
@@ -864,11 +910,11 @@
       <table>
         <thead><tr><th style="width:18%">编号/类别</th><th style="width:44%">名称</th><th style="width:38%">价值</th></tr></thead>
         <tbody>
-          <tr><td class="key">21CJ104-1</td><td>《水性EAU地（路）面面层工程做法》（与中国建筑标准设计研究院共同主编）</td><td>行业内该领域第一本面层做法专业图集，设计院可直接引用选材</td></tr>
-          <tr class="hl"><td class="key">2026CPXY-J521</td><td>《场馆、交通建筑工程做法——水性EAU系列产品》（《建筑产品选用技术》专项图集，中国建筑标准设计研究院主编，2026年7月1日实行）</td><td class="hl">覆盖地（路）面面层、防腐涂层、装饰涂料、防水四大工程板块；金属/混凝土防腐涂层构造做法正式入编，设计院可直接引用</td></tr>
-          <tr><td class="key">T/CECS G:D54-03-2021</td><td>《彩色路面技术规程》（参编）</td><td>行业标准制定话语权</td></tr>
-          <tr><td class="key">环保认证</td><td>中国环境标志产品认证（十环）· 国家绿色产品评价认证 · 碳足迹评价报告</td><td>绿色采购门槛通行证</td></tr>
-          <tr><td class="key">安全运输</td><td>运输危险性鉴定（普通货物）</td><td>非危化品，渠道备货、仓储、物流门槛低</td></tr>
+          <tr><td class="key" data-th="编号/类别">21CJ104-1</td><td data-th="名称">《水性EAU地（路）面面层工程做法》（与中国建筑标准设计研究院共同主编）</td><td data-th="价值">行业内该领域第一本面层做法专业图集，设计院可直接引用选材</td></tr>
+          <tr class="hl"><td class="key" data-th="编号/类别">2026CPXY-J521</td><td data-th="名称">《场馆、交通建筑工程做法——水性EAU系列产品》（《建筑产品选用技术》专项图集，中国建筑标准设计研究院主编，2026年7月1日实行）</td><td class="hl" data-th="价值">覆盖地（路）面面层、防腐涂层、装饰涂料、防水四大工程板块；金属/混凝土防腐涂层构造做法正式入编，设计院可直接引用</td></tr>
+          <tr><td class="key" data-th="编号/类别">T/CECS G:D54-03-2021</td><td data-th="名称">《彩色路面技术规程》（参编）</td><td data-th="价值">行业标准制定话语权</td></tr>
+          <tr><td class="key" data-th="编号/类别">环保认证</td><td data-th="名称">中国环境标志产品认证（十环）· 国家绿色产品评价认证 · 碳足迹评价报告</td><td data-th="价值">绿色采购门槛通行证</td></tr>
+          <tr><td class="key" data-th="编号/类别">安全运输</td><td data-th="名称">运输危险性鉴定（普通货物）</td><td data-th="价值">非危化品，渠道备货、仓储、物流门槛低</td></tr>
         </tbody>
       </table>
     </div>
@@ -921,16 +967,16 @@
         <thead><tr><th style="width:16%">方向</th><th style="width:26%">模式</th><th>子路径 / 说明</th><th style="width:12%">门槛</th></tr></thead>
         <tbody>
           <tr>
-            <td class="key" rowspan="3">材料供应<br><span class="muted">只供材料</span></td>
-            <td><strong>科研立项</strong>（含试点工程）</td><td>顶层技术认可 → 华能企业标准 → 集采通道</td><td><span class="chip org">中</span></td>
+            <td class="key" rowspan="3" data-th="方向">材料供应<br><span class="muted">只供材料</span></td>
+            <td data-th="模式"><strong>科研立项</strong>（含试点工程）</td><td data-th="子路径 / 说明">顶层技术认可 → 华能企业标准 → 集采通道</td><td data-th="门槛"><span class="chip org">中</span></td>
           </tr>
-          <tr><td><strong>直接供货 · 华能商城</strong></td><td>品类编码上架 → 电厂直接下单订购（类企业版京东）</td><td><span class="chip green">低</span></td></tr>
-          <tr><td><strong>直接供货 · 招投标</strong></td><td>电子商务平台发布公告 → 已入库供应商投标竞争</td><td><span class="chip green">低</span></td></tr>
+          <tr><td data-th="方向"><strong>直接供货 · 华能商城</strong></td><td data-th="模式">品类编码上架 → 电厂直接下单订购（类企业版京东）</td><td data-th="子路径 / 说明"><span class="chip green">低</span></td></tr>
+          <tr><td data-th="方向"><strong>直接供货 · 招投标</strong></td><td data-th="模式">电子商务平台发布公告 → 已入库供应商投标竞争</td><td data-th="子路径 / 说明"><span class="chip green">低</span></td></tr>
           <tr>
-            <td class="key" rowspan="2">工程分包<br><span class="muted">材料+施工</span></td>
-            <td><strong>翻新工程分包</strong></td><td>在役电厂防腐翻新招标（需电厂防腐业绩+专业承包资质）</td><td><span class="chip org">中高</span></td>
+            <td class="key" rowspan="2" data-th="方向">工程分包<br><span class="muted">材料+施工</span></td>
+            <td data-th="模式"><strong>翻新工程分包</strong></td><td data-th="子路径 / 说明">在役电厂防腐翻新招标（需电厂防腐业绩+专业承包资质）</td><td data-th="门槛"><span class="chip org">中高</span></td>
           </tr>
-          <tr><td><strong>新建工程分包</strong></td><td>设计阶段介入，经设计院写入技术规格书或与EPC合作</td><td><span class="chip gray">高</span></td>
+          <tr><td data-th="方向"><strong>新建工程分包</strong></td><td data-th="模式">设计阶段介入，经设计院写入技术规格书或与EPC合作</td><td data-th="子路径 / 说明"><span class="chip gray">高</span></td>
         </tr>
       </table>
     </div>
@@ -965,9 +1011,9 @@
       <table>
         <thead><tr><th style="width:18%">阶段</th><th style="width:34%">动作</th><th>占位要点</th></tr></thead>
         <tbody>
-          <tr><td class="key">第一阶段（0~6个月）</td><td>科研立项 + 招投标双线并行：对接科技部门启动联合科研项目申报；利用入库资质尽早参与材料采购投标</td><td>科研立项一旦成功即建立技术壁垒，并带动商城与招投标两条渠道；投标积累供货业绩与口碑</td></tr>
-          <tr><td class="key">第二阶段（6~12个月）</td><td>商城入驻 + 供货深化：推动品类编码申请与产品上架，形成"商城直采 + 招投标"双通道</td><td>水性防腐涂料商城品类空白，加快推进抢占首个入驻品类先机</td></tr>
-          <tr><td class="key">第三阶段（12个月+）</td><td>工程分包布局：以既有专业承包资质切入翻新分包，经设计院关系布局新建项目</td><td>材料+工程双驱动，从供应商升级为服务商</td></tr>
+          <tr><td class="key" data-th="阶段">第一阶段（0~6个月）</td><td data-th="动作">科研立项 + 招投标双线并行：对接科技部门启动联合科研项目申报；利用入库资质尽早参与材料采购投标</td><td data-th="占位要点">科研立项一旦成功即建立技术壁垒，并带动商城与招投标两条渠道；投标积累供货业绩与口碑</td></tr>
+          <tr><td class="key" data-th="阶段">第二阶段（6~12个月）</td><td data-th="动作">商城入驻 + 供货深化：推动品类编码申请与产品上架，形成"商城直采 + 招投标"双通道</td><td data-th="占位要点">水性防腐涂料商城品类空白，加快推进抢占首个入驻品类先机</td></tr>
+          <tr><td class="key" data-th="阶段">第三阶段（12个月+）</td><td data-th="动作">工程分包布局：以既有专业承包资质切入翻新分包，经设计院关系布局新建项目</td><td data-th="占位要点">材料+工程双驱动，从供应商升级为服务商</td></tr>
         </tbody>
       </table>
     </div>
