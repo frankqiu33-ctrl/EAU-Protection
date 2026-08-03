@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1E4D6B">
+  <meta name="description" content="新乘®水性EAU工业更新体系｜经销商与工程服务商合作手册">
+  <title>工业更新体系｜新乘®</title>
+  <style>
+    :root {
+      --blue:#1E4D6B;
+      --blue-900:#0c2b3d;
+      --blue-700:#173e56;
+      --blue-100:#dce8ee;
+      --orange:#E87722;
+      --orange-100:#f9e6d7;
+      --ink:#15242d;
+      --muted:#63727a;
+      --fog:#eef2f3;
+      --paper:#fbfaf6;
+      --white:#fff;
+      --line:rgba(30,77,107,.18);
+      --serif:"Songti SC","STSong","Noto Serif CJK SC",serif;
+      --sans:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+      --mono:"SFMono-Regular","Menlo","Consolas",monospace;
+      --shadow:0 24px 72px rgba(12,43,61,.12);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:72px}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(30,77,107,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(30,77,107,.035) 1px,transparent 1px);background-size:32px 32px}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    ::selection{color:#fff;background:var(--orange)}
+
+    .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:62px;padding:0 4vw;color:#fff;background:rgba(12,43,61,.96);border-bottom:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.08em;white-space:nowrap}
+    .brand-mark{display:grid;place-items:center;width:30px;height:30px;color:#fff;background:var(--orange);font-family:var(--serif);font-size:18px;border-radius:50% 50% 8px 50%}
+    .brand small{color:rgba(255,255,255,.58);font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.14em}
+    nav{display:flex;align-items:center;gap:18px;color:rgba(255,255,255,.72);font-size:12px}
+    nav a:hover{color:#fff}
+    .print-btn{padding:8px 13px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.36);border-radius:2px;cursor:pointer;transition:.2s ease}
+    .print-btn:hover{color:var(--blue-900);background:#fff}
+
+    main{overflow:hidden}
+    section{position:relative;padding:104px 0}
+    .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+    .eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 15px;color:var(--orange);font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:32px;height:2px;background:currentColor}
+    .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.52fr);gap:8vw;align-items:end;margin-bottom:46px}
+    .section-head h2{margin:0;color:var(--blue-900);font-family:var(--serif);font-size:clamp(34px,4.7vw,58px);font-weight:700;line-height:1.12;letter-spacing:-.04em}
+    .section-head p{margin:0;color:var(--muted);font-size:14px}
+    .section-no{position:absolute;top:86px;right:4vw;color:rgba(30,77,107,.06);font-family:var(--mono);font-size:108px;font-weight:900;line-height:1}
+
+    .hero{min-height:790px;display:flex;align-items:center;padding:100px 0 74px;color:#fff;background:radial-gradient(circle at 82% 20%,rgba(232,119,34,.26),transparent 25%),linear-gradient(132deg,var(--blue-900),var(--blue-700) 62%,var(--blue))}
+    .hero::after{content:"";position:absolute;right:-7vw;bottom:-13vw;width:46vw;height:46vw;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 7vw rgba(255,255,255,.025),0 0 0 14vw rgba(255,255,255,.018)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.65fr);gap:7vw;align-items:center}
+    .hero .eyebrow{color:#f6a66a}
+    .hero h1{margin:0;font-family:var(--serif);font-size:clamp(50px,7.5vw,96px);line-height:.95;letter-spacing:-.055em}
+    .hero h1 span{display:block;margin-top:14px;color:#f39a56;font-size:.54em;letter-spacing:.03em}
+    .hero-lead{max-width:760px;margin:30px 0 0;color:rgba(255,255,255,.78);font-size:clamp(17px,2vw,22px)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border:1px solid rgba(255,255,255,.3);font-size:13px;font-weight:700;letter-spacing:.04em;transition:.2s ease}
+    .btn-primary{color:var(--blue-900);background:#fff;border-color:#fff}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.16)}
+    .btn-ghost:hover{background:rgba(255,255,255,.1)}
+    .hero-panel{display:grid;gap:1px;padding:1px;background:rgba(255,255,255,.14);box-shadow:0 28px 68px rgba(0,0,0,.18)}
+    .hero-item{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:21px;background:rgba(255,255,255,.075);backdrop-filter:blur(10px)}
+    .hero-item b{color:#f6a66a;font-family:var(--mono);font-size:11px}
+    .hero-item strong{display:block;margin-bottom:3px;font-size:16px}
+    .hero-item span{color:rgba(255,255,255,.62);font-size:12px}
+    .hero-route{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:34px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14)}
+    .route-cell{padding:18px 20px;background:rgba(12,43,61,.5)}
+    .route-cell small{display:block;color:#f6a66a;font-family:var(--mono);font-size:10px;letter-spacing:.12em}
+    .route-cell strong{font-size:15px}
+
+    .thesis{padding:0;background:var(--orange)}
+    .thesis .wrap{display:grid;grid-template-columns:160px 1fr;gap:34px;align-items:center;padding:35px 0;color:#fff}
+    .thesis b{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+    .thesis p{margin:0;font-family:var(--serif);font-size:clamp(22px,3.3vw,38px);line-height:1.45}
+
+    .asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .asset-card{position:relative;min-height:210px;padding:28px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:.25s ease}
+    .asset-card::after{content:attr(data-index);position:absolute;right:14px;bottom:-20px;color:rgba(30,77,107,.06);font-family:var(--mono);font-size:82px;font-weight:900}
+    .asset-card:hover{transform:translateY(-4px);border-color:rgba(232,119,34,.55);box-shadow:var(--shadow)}
+    .asset-icon{display:grid;place-items:center;width:43px;height:43px;margin-bottom:34px;color:#fff;background:var(--blue);font-family:var(--mono);font-size:11px;border-radius:50% 50% 8px 50%}
+    .asset-card h3{margin:0 0 8px;color:var(--blue-900);font-family:var(--serif);font-size:23px}
+    .asset-card p{margin:0;color:var(--muted);font-size:13px}
+
+    .decision{color:#fff;background:var(--blue-900)}
+    .decision .section-head h2{color:#fff}
+    .decision .section-head p{color:rgba(255,255,255,.62)}
+    .decision .section-no{color:rgba(255,255,255,.035)}
+    .decision-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13)}
+    .decision-step{min-height:238px;padding:24px 20px;background:rgba(255,255,255,.055)}
+    .decision-step b{display:block;margin-bottom:42px;color:#f6a66a;font-family:var(--mono);font-size:11px}
+    .decision-step h3{margin:0 0 10px;font-family:var(--serif);font-size:21px}
+    .decision-step p{margin:0;color:rgba(255,255,255,.6);font-size:12px}
+
+    .portfolio{background:var(--fog)}
+    .atlas-band{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center;margin:-12px 0 34px;padding:25px 28px;color:#fff;background:linear-gradient(120deg,var(--blue-900),var(--blue));border-left:5px solid var(--orange);box-shadow:0 16px 44px rgba(12,43,61,.12)}
+    .atlas-code{color:#f6a66a;font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.1em}
+    .atlas-band strong{display:block;margin-bottom:4px;font-family:var(--serif);font-size:21px}
+    .atlas-band p{margin:0;color:rgba(255,255,255,.64);font-size:11px}
+    .portfolio-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:-18px 0 26px}
+    .tab{padding:9px 14px;color:var(--blue);background:#fff;border:1px solid var(--line);cursor:pointer;font-size:12px;font-weight:700}
+    .tab[aria-pressed="true"]{color:#fff;background:var(--blue);border-color:var(--blue)}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .tier-heading{grid-column:1/-1;display:flex;align-items:center;gap:18px;margin:12px 0 2px;color:var(--blue-900)}
+    .tier-heading::after{content:"";height:1px;flex:1;background:var(--line)}
+    .tier-heading b{font-family:var(--serif);font-size:22px}
+    .tier-heading span{color:var(--muted);font-size:11px}
+    .product-card{display:flex;flex-direction:column;min-height:270px;padding:24px;background:rgba(255,255,255,.74);border:1px solid rgba(30,77,107,.12);border-top:3px solid #a8b6bc;box-shadow:0 6px 20px rgba(12,43,61,.035);transition:.22s ease}
+    .product-card[data-core="true"]{min-height:320px;padding:27px;background:#fff;border-color:rgba(232,119,34,.28);border-top:5px solid var(--orange);box-shadow:0 13px 38px rgba(12,43,61,.08)}
+    .product-card[data-core="true"] .product-tag{color:#fff;background:var(--orange)}
+    .product-card[data-core="false"] .product-tag{color:var(--muted);background:#e3e9eb}
+    .product-card[hidden]{display:none}
+    .product-top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+    .product-num{color:var(--orange);font-family:var(--mono);font-size:12px;font-weight:800}
+    .product-tag{padding:3px 7px;color:var(--blue);background:var(--blue-100);font-size:9px;font-weight:800;letter-spacing:.08em}
+    .product-card h3{margin:18px 0 8px;color:var(--blue-900);font-family:var(--serif);font-size:23px;line-height:1.3}
+    .product-card>p{margin:0 0 18px;color:var(--muted);font-size:12px}
+    .metric-list{display:grid;gap:7px;margin-top:auto;padding-top:17px;border-top:1px solid var(--line);font-size:11px}
+    .metric-list span{display:flex;justify-content:space-between;gap:12px}
+    .metric-list b{color:var(--blue);text-align:right}
+    .voc-note{grid-column:1/-1;display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;margin-top:10px;padding:22px 26px;color:#fff;background:var(--blue)}
+    .voc-note strong{color:#f6a66a;font-family:var(--mono);font-size:11px;letter-spacing:.12em}
+    .voc-note p{margin:0;font-size:13px}
+
+    .industries{background:#fff}
+    .industry-stack{display:grid;gap:12px}
+    .industry-card{display:grid;grid-template-columns:86px minmax(180px,.7fr) minmax(300px,1.35fr) minmax(200px,.75fr);gap:24px;align-items:center;padding:26px 28px;border:1px solid var(--line);transition:.22s ease}
+    .industry-card:hover{border-color:var(--orange);transform:translateX(5px)}
+    .industry-code{color:var(--orange);font-family:var(--mono);font-size:11px;font-weight:800}
+    .industry-card h3{margin:0;color:var(--blue-900);font-family:var(--serif);font-size:22px}
+    .industry-card p{margin:0;color:var(--muted);font-size:12px}
+    .industry-combo{display:flex;flex-wrap:wrap;gap:6px}
+    .industry-combo span{padding:5px 8px;color:var(--blue);background:var(--blue-100);font-family:var(--mono);font-size:10px;font-weight:800}
+    .case{padding-left:16px;border-left:2px solid var(--orange);font-size:11px;color:var(--muted)}
+    .case strong{display:block;color:var(--ink);font-size:12px}
+
+    .proof{background:linear-gradient(135deg,var(--blue-900),var(--blue))}
+    .proof .section-head h2,.proof{color:#fff}
+    .proof .section-head p{color:rgba(255,255,255,.63)}
+    .proof-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    .proof-main,.proof-side{padding:34px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.065)}
+    .proof-main{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;padding:1px;background:rgba(255,255,255,.14)}
+    .proof-cell{min-height:142px;padding:24px;background:rgba(12,43,61,.76)}
+    .proof-cell.proof-wide{grid-column:1/-1;min-height:126px;background:linear-gradient(110deg,rgba(232,119,34,.18),rgba(12,43,61,.76))}
+    .proof-cell b{display:block;color:#f6a66a;font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+    .proof-cell strong{display:block;margin:13px 0 3px;font-family:var(--serif);font-size:21px}
+    .proof-cell span{color:rgba(255,255,255,.58);font-size:11px}
+    .proof-side h3{margin:0 0 20px;font-family:var(--serif);font-size:24px}
+    .proof-side ul{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+    .proof-side li{padding-bottom:12px;color:rgba(255,255,255,.67);border-bottom:1px solid rgba(255,255,255,.12);font-size:12px}
+
+    .support-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .role-card{padding:34px;background:#fff;border:1px solid var(--line)}
+    .role-card.accent{color:#fff;background:var(--blue);border-color:var(--blue)}
+    .role-card h3{margin:0 0 8px;font-family:var(--serif);font-size:28px}
+    .role-card>p{margin:0 0 24px;color:var(--muted);font-size:12px}
+    .role-card.accent>p{color:rgba(255,255,255,.62)}
+    .role-list{display:grid;gap:1px;background:var(--line)}
+    .role-row{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:14px;background:#fff;font-size:12px}
+    .accent .role-list{background:rgba(255,255,255,.13)}
+    .accent .role-row{background:rgba(255,255,255,.07)}
+    .role-row b{color:var(--orange);font-family:var(--mono)}
+
+    .policy{background:var(--fog)}
+    .policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .policy-card{padding:26px;background:#fff;border-left:3px solid var(--orange)}
+    .policy-card small{color:var(--orange);font-family:var(--mono);font-weight:800}
+    .policy-card h3{margin:18px 0 8px;color:var(--blue-900);font-family:var(--serif);font-size:21px}
+    .policy-card p{margin:0;color:var(--muted);font-size:12px}
+
+    .timeline{background:#fff}
+    .timeline-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+    .timeline-track::before{content:"";position:absolute;top:28px;left:12.5%;right:12.5%;height:2px;background:var(--blue-100)}
+    .phase{position:relative;padding:0 22px;text-align:center}
+    .phase-dot{position:relative;z-index:2;display:grid;place-items:center;width:58px;height:58px;margin:0 auto 24px;color:#fff;background:var(--blue);border:7px solid var(--paper);border-radius:50%;font-family:var(--mono);font-size:10px;box-shadow:0 0 0 1px var(--line)}
+    .phase:nth-child(2n) .phase-dot{background:var(--orange)}
+    .phase h3{margin:0 0 8px;color:var(--blue-900);font-family:var(--serif);font-size:20px}
+    .phase p{margin:0;color:var(--muted);font-size:12px}
+    .phase-out{display:inline-block;margin-top:13px;padding:5px 8px;color:var(--blue);background:var(--blue-100);font-size:10px;font-weight:800}
+    .funnel{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:58px;padding-top:30px;border-top:1px solid var(--line)}
+    .funnel span{padding:8px 13px;color:var(--blue);background:var(--fog);font-size:11px;font-weight:700}
+    .funnel i{align-self:center;color:var(--orange);font-style:normal}
+
+    .cta{padding:84px 0;color:#fff;background:var(--orange)}
+    .cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:8vw;align-items:center}
+    .cta h2{margin:0;font-family:var(--serif);font-size:clamp(36px,5.4vw,66px);line-height:1.08;letter-spacing:-.04em}
+    .cta p{margin:22px 0 0;color:rgba(255,255,255,.8)}
+    .contact-card{padding:28px;background:rgba(12,43,61,.92);box-shadow:var(--shadow)}
+    .contact-card small{color:rgba(255,255,255,.55);font-family:var(--mono);font-size:10px;letter-spacing:.12em}
+    .contact-card strong{display:block;margin:8px 0 20px;font-family:var(--serif);font-size:22px}
+    .contact-line{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:12px}
+    .contact-line span:first-child{color:#f6a66a}
+
+    footer{padding:30px 0;color:rgba(255,255,255,.62);background:var(--blue-900);font-size:11px}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .footer-grid strong{color:#fff;font-family:var(--serif);font-size:18px;letter-spacing:.02em}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+
+    @media (max-width:900px){
+      nav a{display:none}.hero{min-height:auto}.hero-grid,.section-head,.proof-grid,.cta-grid{grid-template-columns:1fr}.hero-panel{grid-template-columns:repeat(3,1fr)}.hero-item{grid-template-columns:1fr}.hero-item b{margin-bottom:15px}.hero-item span{display:none}.asset-grid,.product-grid,.policy-grid{grid-template-columns:repeat(2,1fr)}.decision-flow{grid-template-columns:repeat(5,minmax(190px,1fr));overflow-x:auto}.industry-card{grid-template-columns:68px 1fr}.industry-card p,.industry-card .case{grid-column:2}.support-grid{grid-template-columns:1fr}.timeline-track{grid-template-columns:repeat(2,1fr);gap:34px}.timeline-track::before{display:none}.section-no{display:none}
+    }
+    @media (max-width:620px){
+      .topbar{padding:0 18px}.brand small{display:none}.wrap{width:min(calc(100% - 28px),1180px)}section{padding:76px 0}.hero{padding:74px 0 48px}.hero-grid{gap:34px}.hero h1{font-size:48px}.hero-panel{grid-template-columns:1fr}.hero-item{grid-template-columns:38px 1fr}.hero-item span{display:block}.hero-route{grid-template-columns:1fr}.thesis .wrap{grid-template-columns:1fr;gap:8px;padding:28px 0}.asset-grid,.product-grid,.policy-grid{grid-template-columns:1fr}.section-head{gap:20px;margin-bottom:32px}.section-head h2{font-size:38px}.atlas-band{grid-template-columns:1fr;gap:8px;padding:22px}.voc-note{grid-template-columns:1fr}.industry-card{grid-template-columns:50px 1fr;gap:14px;padding:21px 18px}.industry-combo,.industry-card p,.industry-card .case{grid-column:1/-1}.proof-main{grid-template-columns:1fr}.proof-cell.proof-wide{grid-column:auto}.timeline-track{grid-template-columns:1fr}.phase{padding:0}.footer-grid{display:grid}.cta{padding:70px 0}.print-btn{padding:7px 10px}
+    }
+
+    @page{size:A4;margin:12mm}
+    @media print{
+      :root{--paper:#fff}.topbar,.hero-actions,.portfolio-tabs,.print-btn{display:none!important}body{background:#fff;font-size:9pt;color:#111}body::before{display:none}main{overflow:visible}.wrap{width:100%}section{padding:11mm 0}.hero{min-height:0;padding:22mm 0;background:#173e56!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero-grid{grid-template-columns:1.2fr .8fr;gap:12mm}.hero h1{font-size:40pt}.hero-lead{font-size:12pt}.hero-panel{break-inside:avoid}.hero-route{margin-top:10mm}.thesis .wrap{padding:7mm 0}.section-head{margin-bottom:7mm}.section-head h2{font-size:25pt}.asset-grid,.product-grid,.policy-grid{grid-template-columns:repeat(3,1fr);gap:4mm}.asset-card,.product-card,.policy-card,.industry-card,.role-card,.proof-cell,.phase{break-inside:avoid;box-shadow:none}.asset-card{min-height:42mm;padding:5mm}.asset-icon{margin-bottom:7mm}.tier-heading{margin-top:4mm}.product-card,.product-card[data-core="true"]{min-height:58mm;padding:5mm}.product-card h3{font-size:14pt}.metric-list{font-size:7.5pt}.decision{break-before:page}.decision-flow{grid-template-columns:repeat(5,1fr)}.decision-step{min-height:46mm;padding:4mm}.industries,.support,.timeline{break-before:page}.industry-stack{gap:3mm}.industry-card{grid-template-columns:18mm .7fr 1.1fr .65fr;padding:4mm}.industry-card h3{font-size:14pt}.proof-grid,.support-grid,.cta-grid{grid-template-columns:1fr 1fr}.proof-main{grid-template-columns:1fr 1fr}.timeline-track{grid-template-columns:repeat(4,1fr)}.cta{padding:16mm 0}.cta h2{font-size:28pt}footer{padding:7mm 0}.reveal{opacity:1!important;transform:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="返回首页"><span class="brand-mark">乘</span>新乘®<small>INDUSTRIAL RENEWAL</small></a>
+    <nav aria-label="主导航"><a href="#landscape">能力全景</a><a href="#portfolio">产品体系</a><a href="#industries">行业方案</a><a href="#support">合作支撑</a></nav>
+    <button class="print-btn" type="button" onclick="window.print()" aria-label="打印或导出为 PDF">打印 / PDF</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Dealer Partnership · Sample V1</p>
+          <h1>工业更新体系<span>把一段工程关系，扩展成六类资产服务</span></h1>
+          <p class="hero-lead">面向经销商、工程服务商与施工商的全产品线合作手册。以水性EAU复合树脂涂层体系为技术底座，从单一材料供给走向“诊断—配套—试点—交付—复访”的工程服务闭环。</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#portfolio">查看全产品线 →</a><a class="btn btn-ghost" href="#roadmap">查看 90 天路线</a></div>
+        </div>
+        <aside class="hero-panel" aria-label="合作价值摘要">
+          <div class="hero-item"><b>01</b><div><strong>复用客户关系</strong><span>从屋面、防腐或施工合作，延伸到工业资产综合更新。</span></div></div>
+          <div class="hero-item"><b>02</b><div><strong>扩大场景入口</strong><span>六类资产、十二个系列，形成跨部位的需求发现能力。</span></div></div>
+          <div class="hero-item"><b>03</b><div><strong>总部共同交付</strong><span>勘验、方案、试点、培训与交底贯穿首单全过程。</span></div></div>
+        </aside>
+        <div class="hero-route">
+          <div class="route-cell"><small>FROM</small><strong>单点材料供给</strong></div>
+          <div class="route-cell"><small>THROUGH</small><strong>场景诊断与体系配套</strong></div>
+          <div class="route-cell"><small>TO</small><strong>工业资产持续更新服务</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="thesis"><div class="wrap"><b>BUSINESS THESIS</b><p>不是多卖一种涂料，而是把现有屋面防水关系，延伸为工业资产综合更新服务。</p></div></aside>
+
+    <section id="landscape">
+      <span class="section-no">01</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Capability Landscape</p><h2>六类资产，一个业务入口</h2></div><p>经销商不必从产品型号开始。先找到正在老化、腐蚀、渗漏或需要提升安全与环境表现的资产部位，再进入技术选型。</p></div>
+        <div class="asset-grid">
+          <article class="asset-card reveal" data-index="01"><span class="asset-icon">RF</span><h3>屋面</h3><p>金属屋面防腐、热反射与防水协同更新。</p></article>
+          <article class="asset-card reveal" data-index="02"><span class="asset-icon">WL</span><h3>墙面</h3><p>混凝土外墙防护、既有建筑保温装饰更新。</p></article>
+          <article class="asset-card reveal" data-index="03"><span class="asset-icon">FL</span><h3>地面</h3><p>工业地坪、车库、仓库与弹护空间更新。</p></article>
+          <article class="asset-card reveal" data-index="04"><span class="asset-icon">RD</span><h3>路面</h3><p>彩色路面、路面标线、局部病害修补。</p></article>
+          <article class="asset-card reveal" data-index="05"><span class="asset-icon">ST</span><h3>钢结构</h3><p>厂房、桥梁、设备、管道与港口设施防腐。</p></article>
+          <article class="asset-card reveal" data-index="06"><span class="asset-icon">CC</span><h3>混凝土设施</h3><p>桥梁、市政构筑物、污水池与泵站防护。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="decision">
+      <span class="section-no">02</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Decision Path</p><h2>五步把“问题”变成“配套”</h2></div><p>这条路径用于售前勘验和首次技术沟通。具体材料用量、施工工艺与验收方法，按项目条件形成专项建议。</p></div>
+        <div class="decision-flow">
+          <article class="decision-step reveal"><b>STEP 01</b><h3>识别部位</h3><p>屋面、墙面、地面、路面、钢结构或混凝土设施。</p></article>
+          <article class="decision-step reveal"><b>STEP 02</b><h3>诊断基层</h3><p>材质、锈蚀、强度、含水、旧层附着与缺陷状态。</p></article>
+          <article class="decision-step reveal"><b>STEP 03</b><h3>判断介质</h3><p>大气、盐雾、酸碱、污水、热辐射与交通荷载。</p></article>
+          <article class="decision-step reveal"><b>STEP 04</b><h3>确定功能</h3><p>防腐、防水、隔热、耐磨、防滑、装饰或综合需求。</p></article>
+          <article class="decision-step reveal"><b>STEP 05</b><h3>形成配套</h3><p>明确基层处理、底中面层组合、工艺与质检要点。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <span class="section-no">03</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Full Portfolio</p><h2>十二系列，全产品线协同</h2></div><p>橙色顶边为招商核心系列。网页端可按业务方向筛选；打印版默认完整展示。</p></div>
+        <aside class="atlas-band reveal"><span class="atlas-code">2026CPXY-J521<br>专项图集</span><div><strong>全产品线主要工程应用场景，已有系统化做法依据</strong><p>《场馆、交通建筑工程做法——水性EAU系列产品》于 2026 年 7 月 1 日实施，覆盖场馆、交通建筑、金属与混凝土防腐、装饰防水及保温隔热等工程做法。</p></div></aside>
+        <div class="portfolio-tabs" role="group" aria-label="产品线筛选">
+          <button class="tab" type="button" data-filter="all" aria-pressed="true">全部 12 系列</button>
+          <button class="tab" type="button" data-filter="anticorrosion" aria-pressed="false">防腐科技</button>
+          <button class="tab" type="button" data-filter="traffic" aria-pressed="false">绿色交通</button>
+          <button class="tab" type="button" data-filter="sport" aria-pressed="false">运动科技</button>
+          <button class="tab" type="button" data-filter="building" aria-pressed="false">绿建更新</button>
+        </div>
+        <div class="product-grid" id="productGrid">
+          <div class="tier-heading" data-tier-heading="core"><b>招商主线 · 7 个系列</b><span>围绕五行业防腐、地面与交通场景，优先形成首单</span></div>
+          <article class="product-card reveal" data-group="anticorrosion" data-core="true"><div class="product-top"><span class="product-num">01 / METAL</span><span class="product-tag">核心</span></div><h3>金属结构防腐</h3><p>钢结构、桥梁、港口、管道与设备；覆盖 C2～C5-VH，并支持在役旧结构翻新。</p><div class="metric-list"><span>富锌底漆 PB-ZFS6201 <b>锌粉 70%</b></span><span>水性EAU增强型带锈涂装底漆 PB-GA005 <b>耐盐雾 &gt;500h</b></span><span>C5-VH 系统 <b>TW 230737</b></span></div></article>
+          <article class="product-card reveal" data-group="anticorrosion" data-core="true"><div class="product-top"><span class="product-num">02 / CONCRETE</span><span class="product-tag">核心</span></div><h3>混凝土大气防护</h3><p>桥梁梁柱、高架、护栏、建筑外墙与市政混凝土结构。</p><div class="metric-list"><span>CS1 配套 <b>总膜厚 120μm</b></span><span>本色防护 <b>LH-SS801</b></span><span>低温施工条件 <b>5℃</b></span></div></article>
+          <article class="product-card reveal" data-group="anticorrosion" data-core="true"><div class="product-top"><span class="product-num">03 / WATER</span><span class="product-tag">核心</span></div><h3>污废水环境防护</h3><p>污水池、泵站、检修井及管道系统的混凝土内衬防腐。</p><div class="metric-list"><span>三级配套 <b>CS3 / CS4 / CS5</b></span><span>湿基面粘结 <b>≥1.0MPa</b></span><span>不透水性 <b>0.4MPa / 2h</b></span></div></article>
+          <article class="product-card reveal" data-group="traffic" data-core="true"><div class="product-top"><span class="product-num">04 / FLOOR</span><span class="product-tag">核心</span></div><h3>工业地坪</h3><p>停车场、工业厂区、仓库车间与商业地面，按行车道、车位和坡道匹配体系。</p><div class="metric-list"><span>耐人工气候老化 <b>5500h</b></span><span>燃烧性能 <b>A2 级</b></span><span>基层适应 <b>透气 / 可覆涂</b></span></div></article>
+          <article class="product-card reveal" data-group="anticorrosion" data-core="true"><div class="product-top"><span class="product-num">05 / ERC</span><span class="product-tag">核心</span></div><h3>ERC 冷屋面</h3><p>金属屋面防腐、热反射与防水协同；底涂按锈蚀和基层处理程度选择。</p><div class="metric-list"><span>近红外反射比 <b>0.85</b></span><span>ERC1 / ERC2 / ERC3 <b>总膜厚 180μm</b></span><span>技术构成 <b>反射 + 弹性 + 防腐</b></span></div></article>
+          <article class="product-card reveal" data-group="traffic" data-core="true"><div class="product-top"><span class="product-num">06 / COLOR ROAD</span><span class="product-tag">核心</span></div><h3>彩色路面</h3><p>市政慢行道、绿道、厂区道路、钢桥面与停车场，分上人、通用和重载配置。</p><div class="metric-list"><span>抗滑值 <b>56 BPN</b></span><span>钢桥面黏结 <b>6.8MPa</b></span><span>TVOC <b>0.89mg/m²·h</b></span></div></article>
+          <article class="product-card reveal" data-group="traffic" data-core="true"><div class="product-top"><span class="product-num">10 / MARKING</span><span class="product-tag">核心</span></div><h3>路面标线</h3><p>高速、城市道路、机场与停车场；无需高温设备，支持薄层施工与翻新覆涂。</p><div class="metric-list"><span>厚度范围 <b>0.3～1mm</b></span><span>检测依据 <b>JT/T 280-2022</b></span><span>物流属性 <b>普通货物运输</b></span></div></article>
+          <div class="tier-heading" data-tier-heading="adjacent"><b>相邻增量 · 5 个系列</b><span>展示能力广度，在主线客户关系中按场景延伸</span></div>
+          <article class="product-card reveal" data-group="traffic" data-core="false"><div class="product-top"><span class="product-num">07 / REPAIR</span><span class="product-tag">拓展</span></div><h3>路面修补</h3><p>面向工业与市政道路的局部病害修复需求，可与彩色路面业务形成协同入口。</p><div class="metric-list"><span>具体型号 <b>待确认</b></span><span>施工参数 <b>待确认</b></span><span>验收指标 <b>待确认</b></span></div></article>
+          <article class="product-card reveal" data-group="sport" data-core="false"><div class="product-top"><span class="product-num">08 / SPORT</span><span class="product-tag">拓展</span></div><h3>运动场地</h3><p>中小学操场、高校田径场与体育中心，包含 MPV 颗粒及水性EAU运动面层产品。</p><div class="metric-list"><span>有害物质检测 <b>未检出</b></span><span>MPV 急性经口毒性 <b>LD50 &gt;5000mg/kg</b></span><span>适用标准 <b>GB 36246-2018</b></span></div></article>
+          <article class="product-card reveal" data-group="sport" data-core="false"><div class="product-top"><span class="product-num">09 / ELASTIC FLOOR</span><span class="product-tag">拓展</span></div><h3>弹护地板</h3><p>用于康养、教育及对脚感和声学表现有需求的室内空间。</p><div class="metric-list"><span>甲醛 <b>≤0.01mg/m³</b></span><span>降噪量 <b>ΔLw≈20dB</b></span><span>项目适配参数 <b>待确认</b></span></div></article>
+          <article class="product-card reveal" data-group="building" data-core="false"><div class="product-top"><span class="product-num">11 / BUILDING</span><span class="product-tag">拓展</span></div><h3>绿建更新</h3><p>既有建筑节能改造与保温装饰一体板应用，采用水性EAU胶粘体系。</p><div class="metric-list"><span>适用建筑高度 <b>≤100m</b></span><span>政策文件 <b>苏住建〔2025〕2号</b></span><span>具体系统配置 <b>待确认</b></span></div></article>
+          <article class="product-card reveal" data-group="building" data-core="false"><div class="product-top"><span class="product-num">12 / SPONGE CITY</span><span class="product-tag">拓展</span></div><h3>海绵城市</h3><p>围绕透水铺装与海绵校园等场景，承接城市更新中的雨洪管理需求。</p><div class="metric-list"><span>透水系数 <b>3mm/s</b></span><span>典型场景 <b>海绵校园</b></span><span>具体材料配套 <b>待确认</b></span></div></article>
+          <aside class="voc-note"><strong>VOC 口径说明</strong><p>金属防腐配套体系综合值（面漆 / 底面合一语境）：VOC &lt;80g/L；PB-GA005 单品实测：147g/L。两项数据对应不同对象，不作替代引用。</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="industries" id="industries">
+      <span class="section-no">04</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Industry Playbooks</p><h2>五个行业，五组进入方式</h2></div><p>不是把全部产品推给客户，而是围绕其关键资产与检修窗口，先形成一套可验证的小范围方案。</p></div>
+        <div class="industry-stack">
+          <article class="industry-card reveal"><span class="industry-code">PLAY 01</span><h3>工业制造厂区</h3><p>从锈蚀钢结构、设备基础、车间地坪和厂区交通组织进入，形成跨部位更新清单。</p><div class="industry-combo"><span>01 金属</span><span>04 地坪</span><span>10 标线</span></div><div class="case"><strong>华东某大型制造厂区</strong>钢结构翻新与标线试点场景</div></article>
+          <article class="industry-card reveal"><span class="industry-code">PLAY 02</span><h3>水务环保</h3><p>围绕污水池、泵站湿井、检修井和附属钢构件，识别介质、湿基面与密闭施工约束。</p><div class="industry-combo"><span>03 污废水</span><span>01 金属</span></div><div class="case"><strong>华中某污水处理项目</strong>池体内衬防护与附属钢构防腐</div></article>
+          <article class="industry-card reveal"><span class="industry-code">PLAY 03</span><h3>电力能源</h3><p>覆盖电厂钢结构、风电与电网设施、烟气环境混凝土和金属屋面更新。</p><div class="industry-combo"><span>01 金属</span><span>02 混凝土</span><span>03 污废水</span><span>05 ERC</span></div><div class="case"><strong>华北某能源企业</strong>金属屋面与厂区设施综合更新</div></article>
+          <article class="industry-card reveal"><span class="industry-code">PLAY 04</span><h3>港口物流与海洋工程</h3><p>针对盐雾、潮湿和检修窗口受限的码头、转运设施及水工结构，匹配防腐等级和基层处理。</p><div class="industry-combo"><span>01 金属</span><span>02 混凝土</span></div><div class="case"><strong>环渤海某港口码头</strong>转运设施钢结构防护场景</div></article>
+          <article class="industry-card reveal"><span class="industry-code">PLAY 05</span><h3>石油化工</h3><p>围绕储罐、管道、装置区钢结构、地面与交通标识，优先核实腐蚀介质和停产窗口。</p><div class="industry-combo"><span>01 金属</span><span>03 污废水</span><span>04 地坪</span><span>10 标线</span></div><div class="case"><strong>华东某石化园区</strong>装置区防腐与地面更新场景</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Evidence Chain</p><h2>让试点决策有依据</h2></div><p>认证、检测与标准资料用于支撑体系选择；正式项目仍需结合基层、环境和设计要求复核。</p></div>
+        <div class="proof-grid">
+          <div class="proof-main">
+            <div class="proof-cell proof-wide"><b>SPECIALIZED DRAWING · 2026CPXY-J521</b><strong>场馆、交通建筑工程做法专项图集</strong><span>水性EAU系列产品 · 2026 年 7 月 1 日实施</span></div>
+            <div class="proof-cell"><b>METAL SYSTEM</b><strong>C5-VH 系统检测</strong><span>TW 230737 · ISO 12944-6:2018</span></div>
+            <div class="proof-cell"><b>RUST TOLERANT</b><strong>PB-GA005 单品检测</strong><span>TW 241510-1 · 14 项合格</span></div>
+            <div class="proof-cell"><b>ROAD SURFACE</b><strong>国家图集主编</strong><span>21CJ104-1 · 水性EAU地（路）面工程做法</span></div>
+            <div class="proof-cell"><b>COMPANY</b><strong>2009 年成立</strong><span>授权专利逾百项 · 8 个国家标准专业实验室</span></div>
+          </div>
+          <aside class="proof-side"><h3>四项省级鉴定方向</h3><ul><li>金属防腐涂层材料：国际领先</li><li>污水处理防腐材料：国际先进</li><li>混凝土设施防护材料：国内领先</li><li>彩色路面材料：国际先进</li></ul></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="support" id="support">
+      <span class="section-no">05</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Co-delivery Model</p><h2>关系在本地，技术与交付共同完成</h2></div><p>首单不是单向移交。经销商把握客户与现场，总部承担体系化技术支撑，双方共同沉淀可复制的区域样板。</p></div>
+        <div class="support-grid">
+          <article class="role-card reveal"><h3>经销商 / 工程服务商</h3><p>拥有行业资源，组织现场，推进客户决策与关系闭环。</p><div class="role-list"><div class="role-row"><b>01</b><span>识别客户与资产问题，组织进场</span></div><div class="role-row"><b>02</b><span>补充项目条件、实施边界与施工窗口</span></div><div class="role-row"><b>03</b><span>协调业主、施工队伍和样板区域</span></div><div class="role-row"><b>04</b><span>组织现场执行与沟通闭环</span></div><div class="role-row"><b>05</b><span>维护客户关系并发现后续场景</span></div></div></article>
+          <article class="role-card accent reveal"><h3>苏州大乘环保新材有限公司</h3><p>提供从勘验工具到首件确认的技术与内容支撑。</p><div class="role-list"><div class="role-row"><b>01</b><span>提供场景识别表与勘验问题清单</span></div><div class="role-row"><b>02</b><span>完成体系配套、工艺与验收建议</span></div><div class="role-row"><b>03</b><span>开展技术交底、首件确认与过程记录</span></div><div class="role-row"><b>04</b><span>提供质检要点与异常问题支持</span></div><div class="role-row"><b>05</b><span>协助形成回访记录与复制材料</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="policy">
+      <span class="section-no">06</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">Partnership Framework</p><h2>合作从优势行业开始</h2></div><p>以下为合作框架，区域边界、系列范围、阶段目标和双方资源投入，在项目沟通中共同确认。</p></div>
+        <div class="policy-grid">
+          <article class="policy-card reveal"><small>01</small><h3>合作定位</h3><p>区域或行业合作伙伴，以材料与施工一体化方案服务工业客户。</p></article>
+          <article class="policy-card reveal"><small>02</small><h3>准入基础</h3><p>以行业客户资源为核心；具备施工队伍或稳定合作施工资源。</p></article>
+          <article class="policy-card reveal"><small>03</small><h3>优势聚焦</h3><p>首期按既有区域或行业能力聚焦，避免无边界铺开。</p></article>
+          <article class="policy-card reveal"><small>04</small><h3>试点先行</h3><p>以可控范围的样板或局部试点验证配套、工艺与协作流程。</p></article>
+          <article class="policy-card reveal"><small>05</small><h3>能力支持</h3><p>提供样本、行业方案、施工视频、技术培训与现场交底支持。</p></article>
+          <article class="policy-card reveal"><small>06</small><h3>阶段复盘</h3><p>按季度或半年回顾机会、交付与复访进展，共同调整下一阶段目标。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline" id="roadmap">
+      <span class="section-no">07</span>
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="eyebrow">90-day Launch</p><h2>从客户清单到区域样板</h2></div><p>目标不是在 90 天内覆盖全部系列，而是在最熟悉的行业里跑通一次完整链路。</p></div>
+        <div class="timeline-track">
+          <article class="phase reveal"><span class="phase-dot">0—15</span><h3>培训与梳理</h3><p>完成一次产品与场景培训，梳理 10 家工业客户。</p><span class="phase-out">输出：机会清单</span></article>
+          <article class="phase reveal"><span class="phase-dot">16—30</span><h3>筛选与勘验</h3><p>筛选 2 个可勘验机会，确定 1 个试点候选。</p><span class="phase-out">输出：勘验候选</span></article>
+          <article class="phase reveal"><span class="phase-dot">31—60</span><h3>方案与试点</h3><p>完成现场勘验、配套建议、技术交底和局部试点。</p><span class="phase-out">输出：首单记录</span></article>
+          <article class="phase reveal"><span class="phase-dot">61—90</span><h3>复访与复制</h3><p>整理初期表现与协作记录，形成区域样板和复制路径。</p><span class="phase-out">输出：复制材料</span></article>
+        </div>
+        <div class="funnel" aria-label="渠道开发阶段"><span>深化客户</span><i>→</i><span>技术沟通</span><i>→</i><span>试点打样</span><i>→</i><span>框架合作</span><i>→</i><span>首单交付</span><i>→</i><span>复购转介</span></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta-grid">
+        <div><p class="eyebrow" style="color:#fff">START WITH ONE SITE</p><h2>先从一个真实资产问题开始。</h2><p>带上客户场景、基层照片、环境条件与施工窗口，我们共同完成第一次机会判断。</p></div>
+        <aside class="contact-card"><small>CONTACT · 新乘®</small><strong>苏州大乘环保新材有限公司</strong><div class="contact-line"><span>电话</span><span>400-6803-807</span></div><div class="contact-line"><span>官网</span><span>www.iduilv.com</span></div><div class="contact-line"><span>微信</span><span>qiuyifeng003</span></div><div class="contact-line"><span>地址</span><span>苏州市高新区鸿禧路99号</span></div></aside>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-grid"><div><strong>从真实资产问题开始。</strong></div><div>新乘® · 低碳环保，安全第一！ · 水性EAU复合树脂涂层体系</div></div></footer>
+
+  <script>
+    const tabs=[...document.querySelectorAll('.tab')];
+    const cards=[...document.querySelectorAll('.product-card')];
+    const tierHeadings=[...document.querySelectorAll('[data-tier-heading]')];
+    tabs.forEach(tab=>tab.addEventListener('click',()=>{
+      const filter=tab.dataset.filter;
+      tabs.forEach(item=>item.setAttribute('aria-pressed',String(item===tab)));
+      cards.forEach(card=>{card.hidden=filter!=='all'&&card.dataset.group!==filter});
+      tierHeadings.forEach(heading=>{heading.hidden=filter!=='all'});
+    }));
+
+    const revealItems=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+      }),{threshold:.08});
+      revealItems.forEach(item=>observer.observe(item));
+    }else{revealItems.forEach(item=>item.classList.add('visible'))}
+  </script>
+</body>
+</html>
